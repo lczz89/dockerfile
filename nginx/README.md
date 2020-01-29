@@ -1,0 +1,1 @@
+docker build --build-arg NGINX_VERSION=1.15.3 -t nginx1.15.3 .
