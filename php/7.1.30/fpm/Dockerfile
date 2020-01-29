@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/hangjia/alpine:3.9
+FROM registry.cn-hangzhou.aliyuncs.com/zev-php/apline:3.7
 
 ARG PHP_VERSION
 
