@@ -4,8 +4,11 @@ LABEL maintainer="zhuwei"
 
 ENV PHP_VERSION=5.6.40 PHP_DIR=/usr/local/etc/php/5.6/ PATH=$PATH:/usr/local/etc/php/5.6/bin/:/usr/local/etc/php/5.6/sbin/ TZ=Asia/Shanghai LANG=C.UTF-8
 COPY php-5.6.40.tar.gz  /tmp/php-5.6.40.tar.gz
-COPY ext/libiconv-1.15.tar.gz /tmp/libiconv-1.15.tar.gz
 COPY php-fpm.conf /tmp/php-fpm.conf
+COPY ext/libiconv-1.15.tar.gz /tmp/libiconv-1.15.tar.gz
+COPY ext/solr-2.4.0.tgz  /tmp/solr-2.4.0.tgz
+COPY ext/redis-4.2.0.tgz  /tmp/redis-4.2.0.tgz
+COPY ext/memcache-2.2.7.tgz  /tmp/memcache-2.2.7.tgz
 #config参数设置
 RUN  CONFIG="\
 		--prefix=/usr/local/etc/php/5.6 \
@@ -71,11 +74,8 @@ RUN  CONFIG="\
 		freetype-dev \
 		libmcrypt-dev \
 		tzdata \
-		bash
-COPY ext/solr-2.4.0.tgz  /tmp/solr-2.4.0.tgz
-COPY ext/redis-4.2.0.tgz  /tmp/redis-4.2.0.tgz
-COPY ext/memcache-2.2.7.tgz  /tmp/memcache-2.2.7.tgz
-RUN wget -c --tries=0 https://xdebug.org/files/xdebug-2.5.0rc1.tgz  -O /tmp/xdebug-2.5.0rc1.tgz \
+		bash \
+  && wget -c --tries=0 https://xdebug.org/files/xdebug-2.5.0rc1.tgz  -O /tmp/xdebug-2.5.0rc1.tgz \
 	&& cd /tmp \
 	&& for tar in *.gz;  do tar xvf $tar -C /tmp; done \
 	&& for tar in *.tgz;  do tar xvf $tar -C /tmp; done \
