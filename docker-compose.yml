@@ -9,13 +9,24 @@ services:
       - /home/vhosts:/etc/nginx/conf.d
       - /home/logs:/home/logs
     links:
-      - backend
+      - backend5
+      - backend7
     ports:
       - 80:80
     networks:
       app_net:
         ipv4_address: 172.168.10.2
-  backend:
+  backend5:
+    image: php5.6.40:latest
+    volumes:
+      - phpsocket:/dev/shm
+      - /home/www:/home/www
+    links:
+      - redis
+    networks:
+      app_net:
+        ipv4_address: 172.168.10.6
+  backend7:
     image: registry.cn-hangzhou.aliyuncs.com/zev-php/php:7.1.30
     volumes:
       - phpsocket:/dev/shm
