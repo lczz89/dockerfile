@@ -9,6 +9,7 @@ COPY ext/libiconv-1.15.tar.gz /tmp/libiconv-1.15.tar.gz
 COPY ext/solr-2.4.0.tgz  /tmp/solr-2.4.0.tgz
 COPY ext/redis-4.2.0.tgz  /tmp/redis-4.2.0.tgz
 COPY ext/memcache-2.2.7.tgz  /tmp/memcache-2.2.7.tgz
+COPY ext/composer.phar  /usr/sbin/composer
 #config参数设置
 RUN  CONFIG="\
 		--prefix=/usr/local/etc/php/5.6 \
@@ -127,7 +128,6 @@ RUN  CONFIG="\
 	&& make \
 	&& make install \
 	#安装composer
-	&& wget -c --tries=0 https://getcomposer.org/download/1.8.0/composer.phar -O /usr/sbin/composer \
 	&& chmod +x /usr/sbin/composer \
 	&& rm -rf /tmp/* \
 	&& ln -s /usr/local/etc/php/5.6/sbin/php-fpm /usr/sbin/php-fpm \
