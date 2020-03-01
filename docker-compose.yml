@@ -8,7 +8,6 @@ services:
       - /home/www:/home/www
       - /home/vhosts:/etc/nginx/conf.d
       - /home/logs:/home/logs
-      - nginx/php-fastcgi-5.6.conf:/etc/nginx/fastcgi5.6.conf
     links:
       - backend5
       - backend7
