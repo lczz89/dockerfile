@@ -147,9 +147,8 @@ RUN cd /usr/src/pecl \
 	&& pecl install igbinary* \
 	# && pecl install msgpack \
 	&& pecl install redis* \
-	&& pecl install xdebug \
 	&& /bin/bash -c '/bin/echo -e "\n\n\nyes\nno\nyes\nyes\nyes\nyes\n" | pecl install /usr/src/pecl/memcached*' \
-	&& docker-php-ext-enable igbinary redis memcached gd xdebug \
+	&& docker-php-ext-enable igbinary redis memcached gd \
 	&& apk del .build-deps;
 
 ENTRYPOINT ["docker-php-entrypoint"]
