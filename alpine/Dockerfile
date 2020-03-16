@@ -2,8 +2,8 @@ ARG ALPINE_VERSION
 FROM alpine:${ALPINE_VERSION}
 
 # 替换国内镜像源，包含main、community软件
-RUN echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories && \
-	echo "http://mirrors.aliyun.com/alpine/v3.7/community/" >> /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/v${ALPINE_VERSION}/main/" > /etc/apk/repositories && \
+	echo "http://mirrors.aliyun.com/alpine/v${ALPINE_VERSION}/community/" >> /etc/apk/repositories
 
 RUN apk update
 
