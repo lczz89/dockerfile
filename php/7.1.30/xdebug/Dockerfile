@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/zev-php/php:7.1.30-fpm
+FROM registry.cn-hangzhou.aliyuncs.com/zev-php/php:7.1.30
 
 COPY pecl/ /usr/src/pel/
 
