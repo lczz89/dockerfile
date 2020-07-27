@@ -71,7 +71,10 @@ RUN set -eux; \
 		openssl-dev \
 		sqlite-dev \
 		freetype-dev \
+        libpng \
         libpng-dev \
+		libjpeg-turbo \
+		libjpeg-turbo-dev \
 	; \
 	\
 	export CFLAGS="$PHP_CFLAGS" \
@@ -139,7 +142,7 @@ RUN set -eux; \
 	php --version
 
 # 安装必要扩展
-RUN docker-php-ext-configure gd --with-freetype-dir; \
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/included/ --with-jpeg-dir=/usr/include/ ; \
     docker-php-ext-install pdo pdo_mysql pcntl zip gd
 
 # pecl不稳定，采用本地安装
