@@ -6,9 +6,8 @@ RUN apk add --update --no-cache autoconf g++ imagemagick-dev libtool make pcre-d
     && docker-php-ext-enable imagick \
     && apk del autoconf g++ libtool make pcre-dev
 RUN docker-php-ext-install -j$(nproc) bcmath
-
-RUN apk update \
-        && apk add libpng-dev freetype-dev libjpeg-turbo-dev \
+RUN apk add ffmpeg
+RUN  apk add libpng-dev freetype-dev libjpeg-turbo-dev \
         && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/  \
         && docker-php-ext-install -j$(nproc) gd && docker-php-ext-install mysqli
 
