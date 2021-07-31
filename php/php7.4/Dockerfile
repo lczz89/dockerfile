@@ -9,6 +9,7 @@ RUN docker-php-ext-configure gd --with-webp=/usr/include/webp --with-freetype=/u
         && docker-php-ext-install  gd
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 RUN apk add librdkafka-dev && pecl install rdkafka && docker-php-ext-enable rdkafka
+RUN apk add libzip-dev && docker-php-ext-install zip
 RUN apk del autoconf g++ libtool make pcre-dev
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
