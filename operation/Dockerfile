@@ -12,5 +12,5 @@ CMD /usr/sbin/sshd
 
 # docker run -dit -p 4524:22 alpinesshd sh
 # 后台运行之后，进入手动启动 /usr/sbin/sshd 
-#ssh  -p4524 root@8.214.45.24 即可远程连接 test
+#ssh  -p4524 root@8.214.45.24 即可远程连接 test 1
 #mysql -hrm-t4nn78hzy2k91yf0n.mysql.singapore.rds.aliyuncs.com -ufinno_tester -p'OugyjN4$(Fnmfr' helios_pro
